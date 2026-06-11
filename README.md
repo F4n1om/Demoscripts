@@ -33,7 +33,7 @@ sysctl -p
 systemctl restart network
 
 
-=======BR-RTR======= 
+# =======BR-RTR======= 
 -------Имя------- 
 hostnamectl hostname br-rtr.quark.net
 exec bash 
@@ -128,7 +128,7 @@ systemctl enable --now nftables frr
 -------TimeZone-------
 timedatectl set-timezone Asia/Yekaterinburg
 
-=======HQ-RTR======= 
+# =======HQ-RTR======= 
 hostnamectl hostname hq-rtr.quark.net
 exec bash 
 -------Настройка внешнего интерфейса------- 
@@ -243,7 +243,7 @@ sed -i 's/DHCPDARGS=/DHCPDARGS=enp7s2.200/g' /etc/sysconfig/dhcpd
 systemctl enable --now dhcpd
 systemctl restart network
 systemctl restart dhcpd
-=======HQ-SRV======= 
+# =======HQ-SRV======= 
 -------Имя------- 
 hostnamectl hostname hq-srv.quark.net
 exec bash 
@@ -341,13 +341,13 @@ systemctl status bind
 host hq-srv.quark.net 172.16.100.2
 nslookup hq-rtr.quark.net 172.16.100.2
 
-=======HQ-CLI======= 
+# =======HQ-CLI======= 
 -------Имя------- 
 hostnamectl hostname hq-cli.quark.net
 exec bash
 echo -e 'BOOTPROTO=dhcp\nTYPE=eth'>/etc/net/ifaces/enp7s1/options 
 systemctl restart network
-=======BR-SRV======= 
+# =======BR-SRV======= 
 -------Имя------- 
 hostnamectl hostname br-srv.quark.net
 exec bash 
